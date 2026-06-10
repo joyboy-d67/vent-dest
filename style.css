@@ -595,7 +595,7 @@ body.dark-theme .status-indicator {
 
 .cat-image {
     width: 100%;
-    height: 240px;
+    height: 185px;
     object-fit: cover;
     object-position: center 10%;
     display: block;
@@ -1209,7 +1209,7 @@ body.dark-theme .info-swatch {
 
 .cat-image-flat {
     width: 100%;
-    height: 230px;
+    height: 185px;
     object-fit: cover;
     object-position: center 10%;
     border-radius: 8px;
@@ -1425,4 +1425,81 @@ body.dark-theme .color-info strong {
 
 .footer-content p:first-child {
     color: #94a3b8;
+}
+
+/* Benefits block styles for Volet Intérieur Gauche */
+.benefits-block {
+    margin-top: 14px;
+    border-top: 1px dashed rgba(2, 132, 199, 0.15);
+    padding-top: 12px;
+}
+
+.benefits-block h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.dark-theme .benefits-block h4 {
+    color: white;
+}
+
+.benefits-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.72rem;
+    color: #475569;
+    line-height: 1.3;
+}
+
+body.dark-theme .benefits-list li {
+    color: #cbd5e1;
+}
+
+.benefits-list li i {
+    font-size: 0.8rem;
+    margin-top: 1px;
+}
+
+/* Flat page footer and trust seals */
+.flat-page-footer {
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.flat-trust-seals {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(2, 132, 199, 0.15);
+    padding-top: 10px;
+}
+
+.seal-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.seal-item i {
+    color: #10b981;
+}
+
+/* Adjustments for compact view */
+.compact-benefits {
+    margin-top: 10px;
+    padding-top: 8px;
 }
