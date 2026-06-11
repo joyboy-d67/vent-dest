@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vent d'Est - Climatisation | Modèle de Flyer Interactif</title>
+    <title>Vent d'Est - Contact Rapide</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,475 +12,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- App Background Shapes -->
+<body class="desert-theme">
+    <!-- Desert Tumbleweeds -->
+    <div class="tumbleweeds">
+        <div class="tumbleweed tumbleweed-1"></div>
+        <div class="tumbleweed tumbleweed-2"></div>
+    </div>
     <div class="bg-glow bg-glow-orange"></div>
     <div class="bg-glow bg-glow-blue"></div>
 
-    <header class="app-header">
-        <div class="header-container">
-            <div class="brand-logo">
-                <img src="logo_vent_dest.png" alt="Vent d'Est Logo" class="nav-logo">
-                <div class="logo-text">
-                    <span class="company-name">Vent d'Est</span>
-                    <span class="tagline">Installation de Climatisation</span>
-                </div>
-            </div>
-            <nav class="nav-actions">
-                <a href="#showcase" class="nav-link active"><i class="fa-solid fa-book-open"></i> Flyer 3D</a>
-                <a href="#flat-view" class="nav-link"><i class="fa-solid fa-table-cells"></i> Planches à plat</a>
-                <a href="#brand-identity" class="nav-link"><i class="fa-solid fa-palette"></i> Charte Graphique</a>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Changer le thème">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-            </nav>
+    <!-- 3D AC Unit Toggle -->
+    <div id="ac-unit-widget" class="ac-widget" aria-label="Toggle AC">
+        <div class="ac-wind-flow">
+            <div class="ac-wind ac-wind-1"></div>
+            <div class="ac-wind ac-wind-2"></div>
+            <div class="ac-wind ac-wind-3"></div>
+            <div class="ac-wind ac-wind-4"></div>
+            <div class="ac-wind ac-wind-5"></div>
         </div>
-    </header>
+        <div class="ac-body">
+            <div class="ac-brand">VENT D'EST</div>
+            <div class="ac-display">18°C</div>
+            <div class="ac-flap"></div>
+        </div>
+        <button id="ac-toggle-btn" class="ac-power-btn">OFF</button>
+    </div>
 
-    <main class="main-content">
-        <section id="showcase" class="showcase-section">
-            <div class="section-header">
-                <span class="badge">Présentation interactive</span>
-                <h1>Modèle de Flyer Double Volet</h1>
-                <p>Découvrez la maquette interactive de votre flyer d'été. Utilisez les commandes pour manipuler le flyer en 3D (le plier, le déplier, le retourner).</p>
+    <main class="linktree-container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-image-container">
+                <img src="logo_vent_dest.png" alt="Vent d'Est Logo" class="profile-logo">
             </div>
-
-            <div class="workspace-grid">
-                <!-- 3D Scene Viewport -->
-                <div class="viewport-card">
-                    <div class="viewport-actions">
-                        <span class="status-indicator"><i class="fa-solid fa-cube"></i> Mode 3D Actif</span>
-                        <div class="viewport-zoom-controls">
-                            <span class="view-state-label" id="view-state">Fermé (Face)</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flyer-scene">
-                        <div class="flyer-3d" id="flyer3d">
-                            <!-- COVER PANEL (Flips open left) -->
-                            <div class="flyer-panel cover-panel">
-                                <!-- PAGE 1: Front Cover (Facing up when closed) -->
-                                <div class="panel-face front-cover">
-                                    <div class="page-header">
-                                        <img src="logo_vent_dest.png" alt="Logo Vent d'Est" class="flyer-logo">
-                                        <span class="teaser-badge"><i class="fa-solid fa-bolt"></i> Devis Gratuit en 24h</span>
-                                    </div>
-                                    <div class="cover-hero">
-                                        <span class="accent-line">L'ÉTÉ S'ANNONCE CHAUD</span>
-                                        <h2>Restez au frais avec Vent d'Est</h2>
-                                        <p>Votre expert local en installation de climatisation à Strasbourg et environs.</p>
-                                    </div>
-                                    <div class="cover-preview-img" style="background-image: url('summer_heat_ac.png');">
-                                        <div class="cool-breeze-overlay">
-                                            <span><i class="fa-solid fa-wind"></i> Fraîcheur Garantie</span>
-                                        </div>
-                                    </div>
-                                    <div class="cover-promo-badge">
-                                        <div class="promo-discount">-30%</div>
-                                        <div class="promo-text">sur l'installation *</div>
-                                    </div>
-                                    <div class="cover-footer">
-                                        <span>Code Promo : <strong>CHAUD26</strong></span>
-                                        <span>* Voir conditions à l'intérieur</span>
-                                    </div>
-                                </div>
-
-                                <!-- PAGE 2: Inside Left (Facing up when opened) -->
-                                <div class="panel-face inside-left">
-                                    <div class="inside-header">
-                                        <span class="brand-text">Vent d'Est Climatisation</span>
-                                        <span class="page-num">Page 2</span>
-                                    </div>
-                                    <div class="inside-body">
-                                        <div class="image-showcase">
-                                            <img src="cat_ac.png" alt="Confort de climatisation" class="cat-image">
-                                            <div class="image-caption">
-                                                <i class="fa-solid fa-heart"></i> Un confort absolu pour toute la famille.
-                                            </div>
-                                        </div>
-                                        <div class="text-block">
-                                            <h3>Le confort thermique à domicile</h3>
-                                            <p>Ne subissez plus les vagues de chaleur estivales. Nos solutions régulent la température de votre intérieur au degré près.</p>
-                                        </div>
-                                        <div class="benefits-block">
-                                            <h4>Pourquoi choisir Vent d'Est ?</h4>
-                                            <ul class="benefits-list">
-                                                <li><i class="fa-solid fa-house-chimney text-primary"></i> <span><strong>Proximité</strong> : Basés à Eschau, nous intervenons rapidement.</span></li>
-                                                <li><i class="fa-solid fa-leaf text-primary"></i> <span><strong>Performance</strong> : Équipements A+++ économiques.</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BASE PANEL (Static right side) -->
-                            <div class="flyer-panel base-panel">
-                                <!-- PAGE 3: Inside Right (Revealed when cover is opened) -->
-                                <div class="panel-face inside-right">
-                                    <div class="inside-header">
-                                        <span class="brand-text">Vent d'Est Climatisation</span>
-                                        <span class="page-num">Page 3</span>
-                                    </div>
-                                    <div class="inside-body">
-                                        <div class="promo-box">
-                                            <span class="promo-title">OFFRE EXCLUSIVE FLIER</span>
-                                            <div class="promo-value">-30%</div>
-                                            <p class="promo-desc">sur la main d'œuvre pour toute installation validée avant le 31 août 2026.</p>
-                                            <div class="promo-code-container" id="copy-promo-trigger" title="Cliquez pour copier le code">
-                                                <span class="code-label">Code flyer à rappeler :</span>
-                                                <div class="code-badge">
-                                                    <span id="promo-code">CHAUD26</span>
-                                                    <i class="fa-solid fa-copy"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="services-list-container">
-                                            <h3>Nos Prestations</h3>
-                                            <ul class="services-list">
-                                                <li><i class="fa-solid fa-circle-check text-primary"></i> <span><strong>Devis Gratuit</strong> et sans engagement sous 24/48h</span></li>
-                                                <li><i class="fa-solid fa-circle-check text-primary"></i> <span><strong>Installation rapide</strong> et soignée par des techniciens certifiés</span></li>
-                                                <li><i class="fa-solid fa-circle-check text-primary"></i> <span><strong>Matériel premium</strong> de grandes marques (Daikin, Mitsubishi, etc.)</span></li>
-                                                <li><i class="fa-solid fa-circle-check text-primary"></i> <span><strong>Entretien & Dépannage</strong> pour une longévité maximale</span></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="action-highlight">
-                                            <span class="badge-devis"><i class="fa-solid fa-star"></i> DEVIS GRATUIT</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- PAGE 4: Back Cover (Facing up when rotated 180deg) -->
-                                <div class="panel-face back-cover">
-                                    <div class="back-header">
-                                        <img src="logo_vent_dest.png" alt="Logo Vent d'Est" class="flyer-logo-white">
-                                        <h3>VENT D'EST</h3>
-                                        <p class="sub-text">Le souffle de la fraîcheur</p>
-                                    </div>
-                                    
-                                    <div class="contact-details-grid">
-                                        <div class="contact-item">
-                                            <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
-                                            <div class="contact-info">
-                                                <span>Téléphone</span>
-                                                <a href="tel:0766284988" class="contact-link">07 66 28 49 88</a>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
-                                            <div class="contact-info">
-                                                <span>Adresse Email</span>
-                                                <a href="mailto:info@vendest.fr" class="contact-link">info@vendest.fr</a>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                                            <div class="contact-info">
-                                                <span>Adresse Siège</span>
-                                                <a href="https://maps.google.com/?q=4+rue+Bernard+Saltere,+Eschau" target="_blank" class="contact-link">4 rue Bernard Saltere,<br>Eschau</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="map-mockup">
-                                        <div class="map-pin"></div>
-                                        <div class="map-overlay">Eschau & Région de Strasbourg</div>
-                                    </div>
-
-                                    <div class="back-footer">
-                                        <div class="trust-icons">
-                                            <span><i class="fa-solid fa-shield-halved"></i> Assurance R.C. Decennale</span>
-                                            <span><i class="fa-solid fa-certificate"></i> Professionnel RGE</span>
-                                        </div>
-                                        <div class="legal-mention">Vent d'Est Climatisation • Devis gratuit sans engagement</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Controls sidebar -->
-                <div class="controls-card">
-                    <h2>Commandes du Flyer</h2>
-                    <p class="controls-intro">Interagissez avec le flyer 3D en utilisant les boutons ci-dessous pour voir l'effet du pliage et du recto/verso.</p>
-                    
-                    <div class="controls-group">
-                        <button id="btn-toggle-fold" class="btn btn-primary btn-block">
-                            <i class="fa-solid fa-book-open"></i> <span id="fold-btn-text">Ouvrir le flyer</span>
-                        </button>
-                        <button id="btn-toggle-side" class="btn btn-secondary btn-block">
-                            <i class="fa-solid fa-rotate"></i> Voir la quatrième de couverture
-                        </button>
-                    </div>
-
-                    <div class="divider"></div>
-
-                    <h3>Informations Rapides</h3>
-                    <div class="info-swatches">
-                        <div class="info-swatch" id="copy-phone">
-                            <div class="swatch-icon"><i class="fa-solid fa-phone"></i></div>
-                            <div class="swatch-data">
-                                <span class="label">Téléphone</span>
-                                <span class="val">07 66 28 49 88</span>
-                            </div>
-                        </div>
-                        <div class="info-swatch" id="copy-email">
-                            <div class="swatch-icon"><i class="fa-solid fa-envelope"></i></div>
-                            <div class="swatch-data">
-                                <span class="label">E-mail</span>
-                                <span class="val">info@vendest.fr</span>
-                            </div>
-                        </div>
-                        <div class="info-swatch">
-                            <div class="swatch-icon"><i class="fa-solid fa-tag"></i></div>
-                            <div class="swatch-data">
-                                <span class="label">Code Promo (-30%)</span>
-                                <span class="val">CHAUD26</span>
-                            </div>
-                        </div>
-                        <div class="info-swatch">
-                            <div class="swatch-icon"><i class="fa-solid fa-coins"></i></div>
-                            <div class="swatch-data">
-                                <span class="label">Estimation tarifaire</span>
-                                <span class="val">Devis 100% Gratuit</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="toast" id="toast-message">Copié dans le presse-papiers !</div>
-                </div>
-            </div>
+            <h1 class="profile-title">Vent d'Est</h1>
+            <p class="profile-subtitle">Expert en Installation de Climatisation</p>
+            <p class="profile-description">Strasbourg & Environs. Devis gratuit sous 24h.</p>
         </section>
 
-        <!-- Flat view section -->
-        <section id="flat-view" class="flat-view-section">
-            <div class="section-header">
-                <span class="badge">Aperçu pour Impression</span>
-                <h2>Planches à plat (Recto & Verso)</h2>
-                <p>Visualisez les deux faces du flyer à plat telles qu'elles seront envoyées à l'imprimeur.</p>
-            </div>
-
-            <div class="flat-grid">
-                <!-- Recto Layout -->
-                <div class="flat-card">
-                    <div class="flat-title">Plan 1 : Recto (Extérieur - Volet 4 & Volet 1)</div>
-                    <div class="flat-sheet outer-sheet">
-                        <!-- Left Side of Recto is Volet 4 (Back Cover) -->
-                        <div class="flat-page page-back-cover">
-                            <!-- Back cover layout recreated flat -->
-                            <div class="flat-page-content dark-theme">
-                                <div class="back-header">
-                                    <img src="logo_vent_dest.png" alt="Logo Vent d'Est" class="flyer-logo-white">
-                                    <h3>VENT D'EST</h3>
-                                    <p class="sub-text">Le souffle de la fraîcheur</p>
-                                </div>
-                                <div class="contact-details-grid compact">
-                                    <div class="contact-item">
-                                        <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
-                                        <div class="contact-info">
-                                            <span>Téléphone</span>
-                                            <strong class="text-white">07 66 28 49 88</strong>
-                                        </div>
-                                    </div>
-                                    <div class="contact-item">
-                                        <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
-                                        <div class="contact-info">
-                                            <span>Email</span>
-                                            <strong class="text-white">info@vendest.fr</strong>
-                                        </div>
-                                    </div>
-                                    <div class="contact-item">
-                                        <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                                        <div class="contact-info">
-                                            <span>Adresse</span>
-                                            <strong class="text-white">4 rue Bernard Saltere, Eschau</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="trust-icons-flat">
-                                    <span><i class="fa-solid fa-shield-halved"></i> Décennale</span>
-                                    <span><i class="fa-solid fa-certificate"></i> Artisan RGE</span>
-                                </div>
-                                <div class="legal-mention-flat">Vent d'Est Climatisation • Devis gratuit sans engagement</div>
-                            </div>
-                        </div>
-                        <!-- Spine line -->
-                        <div class="fold-line"><span class="line-label">Pli Central</span></div>
-                        <!-- Right Side of Recto is Volet 1 (Front Cover) -->
-                        <div class="flat-page page-front-cover">
-                            <div class="flat-page-content">
-                                <div class="page-header">
-                                    <img src="logo_vent_dest.png" alt="Logo Vent d'Est" class="flyer-logo">
-                                    <span class="teaser-badge">Devis Gratuit en 24h</span>
-                                </div>
-                                <div class="cover-hero">
-                                    <span class="accent-line">L'ÉTÉ S'ANNONCE CHAUD</span>
-                                    <h2>Restez au frais avec Vent d'Est</h2>
-                                    <p>Votre expert local en installation de climatisation à Strasbourg.</p>
-                                </div>
-                                <div class="cover-preview-img-flat" style="background-image: url('summer_heat_ac.png');"></div>
-                                <div class="cover-promo-badge compact-badge">
-                                    <div class="promo-discount">-30%</div>
-                                    <div class="promo-text">sur l'installation</div>
-                                </div>
-                                <div class="cover-footer">
-                                    <span>Code : <strong>CHAUD26</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Links Section -->
+        <section class="links-section">
+            <a href="tel:0766284988" class="link-button btn-call">
+                <div class="link-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="link-content">
+                    <span class="link-title">Appeler Maintenant</span>
+                    <span class="link-desc">07 66 28 49 88</span>
                 </div>
+            </a>
 
-                <!-- Verso Layout -->
-                <div class="flat-card">
-                    <div class="flat-title">Plan 2 : Verso (Intérieur - Volet 2 & Volet 3)</div>
-                    <div class="flat-sheet inner-sheet">
-                        <!-- Left Side of Verso is Volet 2 (Inside Left) -->
-                        <div class="flat-page page-inside-left">
-                            <div class="flat-page-content light-bg">
-                                <div class="inside-header">
-                                    <span class="brand-text">Vent d'Est Climatisation</span>
-                                    <span class="page-num">Volet Intérieur Gauche</span>
-                                </div>
-                                <div class="inside-body-flat">
-                                    <div class="image-showcase">
-                                        <img src="cat_ac.png" alt="Confort de climatisation" class="cat-image-flat">
-                                    </div>
-                                    <div class="text-block compact">
-                                        <h3>Le confort thermique chez vous</h3>
-                                        <p>Ne subissez plus les vagues de chaleur estivales. Nos climatisations réversibles garantissent une fraîcheur idéale chez vous.</p>
-                                    </div>
-                                    <div class="benefits-block compact-benefits">
-                                        <h4>Pourquoi choisir Vent d'Est ?</h4>
-                                        <ul class="benefits-list">
-                                            <li><i class="fa-solid fa-house-chimney text-primary"></i> <span><strong>Proximité</strong> : Basés à Eschau, intervention rapide.</span></li>
-                                            <li><i class="fa-solid fa-leaf text-primary"></i> <span><strong>Performance</strong> : Appareils A+++ économiques.</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Spine line -->
-                        <div class="fold-line"><span class="line-label">Pli Central</span></div>
-                        <!-- Right Side of Verso is Volet 3 (Inside Right) -->
-                        <div class="flat-page page-inside-right">
-                            <div class="flat-page-content light-bg">
-                                <div class="inside-header">
-                                    <span class="brand-text">Vent d'Est Climatisation</span>
-                                    <span class="page-num">Volet Intérieur Droit</span>
-                                </div>
-                                <div class="inside-body-flat">
-                                    <div class="promo-box compact-promo">
-                                        <span class="promo-title">OFFRE EXCLUSIVE</span>
-                                        <div class="promo-value">-30%</div>
-                                        <div class="code-badge-flat">Code flyer : <strong>CHAUD26</strong></div>
-                                    </div>
-                                    <div class="services-list-container compact">
-                                        <ul class="services-list">
-                                            <li><i class="fa-solid fa-circle-check text-primary"></i> Devis Gratuit & sans engagement</li>
-                                            <li><i class="fa-solid fa-circle-check text-primary"></i> Pose rapide par des techniciens qualifiés</li>
-                                            <li><i class="fa-solid fa-circle-check text-primary"></i> Matériel garanti & de grande marque</li>
-                                        </ul>
-                                    </div>
-                                    <div class="flat-page-footer">
-                                        <div class="flat-trust-seals">
-                                            <span class="seal-item"><i class="fa-solid fa-certificate"></i> RGE Qualibat</span>
-                                            <span class="seal-item"><i class="fa-solid fa-shield-halved"></i> Décennale</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <a href="https://wa.me/33766284988" target="_blank" rel="noopener noreferrer" class="link-button btn-whatsapp">
+                <div class="link-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="link-content">
+                    <span class="link-title">Message WhatsApp</span>
+                    <span class="link-desc">Échangez avec nous en direct</span>
                 </div>
-            </div>
+            </a>
+
+            <a href="mailto:info@vendest.fr" class="link-button btn-email">
+                <div class="link-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="link-content">
+                    <span class="link-title">Envoyer un Email</span>
+                    <span class="link-desc">info@vendest.fr</span>
+                </div>
+            </a>
         </section>
-
-        <!-- Brand Identity Section -->
-        <section id="brand-identity" class="brand-identity-section">
-            <div class="section-header">
-                <span class="badge">Charte Graphique</span>
-                <h2>Identité Visuelle "Vent d'Est"</h2>
-                <p>Visualisez les éléments clés créés pour l'identité de marque.</p>
-            </div>
-
-            <div class="brand-grid">
-                <!-- Brand logo design -->
-                <div class="brand-card">
-                    <h3>Le Concept du Logo</h3>
-                    <div class="logo-display-box">
-                        <img src="logo_vent_dest.png" alt="Logo Vent d'Est Complet" class="showcase-logo-img">
-                    </div>
-                    <div class="logo-explanation">
-                        <p>Le logo de <strong>Vent d'Est</strong> a été élaboré pour allier technicité, dynamisme et bien-être thermique :</p>
-                        <ul>
-                            <li><strong>Le Symbole de la Vague (Orange)</strong> : Évoque le soleil, la chaleur estivale et le flux de l'air.</li>
-                            <li><strong>La Flèche vers l'Est (Bleu)</strong> : Évoque le nom de l'entreprise "Vent d'Est" et le flux d'air rafraîchi soufflé par le climatiseur.</li>
-                            <li><strong>Le Flocon de Neige</strong> : Symbole universel du froid et de la climatisation, ancré au cœur de la flèche.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Colors and typography -->
-                <div class="brand-card">
-                    <h3>Couleurs & Typographie</h3>
-                    
-                    <h4>Palette de Couleurs</h4>
-                    <div class="color-palette">
-                        <div class="color-swatch-detail">
-                            <div class="color-box" style="background-color: #f97316;"></div>
-                            <div class="color-info">
-                                <strong>Orange Chaleur</strong>
-                                <span>#f97316 (HSL 24, 95%, 53%)</span>
-                            </div>
-                        </div>
-                        <div class="color-swatch-detail">
-                            <div class="color-box" style="background-color: #0284c7;"></div>
-                            <div class="color-info">
-                                <strong>Bleu Climatisation</strong>
-                                <span>#0284c7 (HSL 200, 96%, 39%)</span>
-                            </div>
-                        </div>
-                        <div class="color-swatch-detail">
-                            <div class="color-box" style="background-color: #0f172a;"></div>
-                            <div class="color-info">
-                                <strong>Bleu Nuit Premium</strong>
-                                <span>#0f172a (HSL 222, 47%, 11%)</span>
-                            </div>
-                        </div>
-                        <div class="color-swatch-detail">
-                            <div class="color-box" style="background-color: #f0f9ff; border: 1px solid #e2e8f0;"></div>
-                            <div class="color-info">
-                                <strong>Fond Air Frais</strong>
-                                <span>#f0f9ff (HSL 200, 100%, 97%)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="divider"></div>
-
-                    <h4>Typographies de la marque</h4>
-                    <div class="typography-showcase">
-                        <div class="typo-item">
-                            <span class="typo-label">Titres Principaux (Outfit)</span>
-                            <span class="typo-preview font-outfit">Vent d'Est - Le confort chez vous</span>
-                        </div>
-                        <div class="typo-item">
-                            <span class="typo-label">Corps de texte (Inter)</span>
-                            <span class="typo-preview font-inter">Notre équipe installe votre climatisation dans les meilleurs délais avec du matériel certifié RGE.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <div class="trust-indicators">
+            <span><i class="fa-solid fa-shield-halved"></i> Assurance R.C. Décennale</span>
+            <span><i class="fa-solid fa-certificate"></i> Professionnel RGE</span>
+        </div>
     </main>
 
     <footer class="app-footer">
         <div class="footer-content">
-            <p>&copy; 2026 Vent d'Est. Tous droits réservés. Modèle créé pour l'opération "Flyer Canicule 2026".</p>
-            <p>Conçu par un Graphiste Expert • Pour toute modification, contactez le support.</p>
+            <p>&copy; 2026 Vent d'Est Climatisation. Tous droits réservés.</p>
         </div>
     </footer>
 
